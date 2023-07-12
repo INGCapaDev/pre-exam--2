@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
             if (usuario != null && usuario.getContra().equals(contra)){
                 Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                startActivity(intent);
             } else {
                 Toast.makeText(MainActivity.this, "Datos incorrectos o no esta registrado", Toast.LENGTH_SHORT).show();
 

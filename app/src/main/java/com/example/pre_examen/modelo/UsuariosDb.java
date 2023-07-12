@@ -109,13 +109,14 @@ public class UsuariosDb implements Persistencia, Proyeccion {
                 null, null, null, null, null
         );
         List<Usuario> usuarios = new ArrayList<>();
-        
-        while (!cursor.isAfterLast()) {
-            Usuario usuario = readUsuario(cursor);
-            usuarios.add(usuario);
-            cursor.moveToNext();
-            
+
+        if (cursor.moveToFirst()) {
+            do {
+                Usuario usuario = readUsuario(cursor);
+                usuarios.add(usuario);
+            } while (cursor.moveToNext());
         }
+
         cursor.close();
         return usuarios;
     }
