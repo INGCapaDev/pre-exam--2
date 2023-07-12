@@ -1,6 +1,8 @@
 package com.example.pre_examen.modelo;
 
-public class DefineTable {
+import android.provider.BaseColumns;
+
+public class DefineTable implements BaseColumns {
     public DefineTable(){}
 
     public static abstract class Usuarios {
