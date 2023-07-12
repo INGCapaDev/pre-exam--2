@@ -2,6 +2,7 @@ package com.example.pre_examen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,25 +44,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnRegistrarse.setOnClickListener(v -> {
-            String correo = txtCorreo.getText().toString();
-            String contra = txtContra.getText().toString();
-
-            Usuario usuarioExistente = usuariosDb.getUsuario(correo);
-
-            if (usuarioExistente != null) {
-                Toast.makeText(MainActivity.this, "El correo ya existe", Toast.LENGTH_SHORT).show();
-            } else {
-                Usuario nuevoUsuario = new Usuario();
-                nuevoUsuario.setCorreo(correo);
-                nuevoUsuario.setContra(contra);
-                long resultado = usuariosDb.insertUsuario(nuevoUsuario);
-                if (resultado > 0) {
-                    Toast.makeText(MainActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Ocurrio un error", Toast.LENGTH_SHORT).show();
-                }
-            }
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            startActivity(intent);
         });
+
 
 
 

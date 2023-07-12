@@ -12,13 +12,14 @@ public class UsuarioDbHelper extends SQLiteOpenHelper {
     private static final String SQL_CREATE_USUARIO = "CREATE TABLE " +
             DefineTable.Usuarios.TABLE_NAME + " ( " +
             DefineTable.Usuarios.COLUMN_NAME_ID + " INTEGER PRIMARY KEY, " +
+            DefineTable.Usuarios.COLUMN_NAME_USUARIO + TEXT_TYPE + COMMA_SEP +
             DefineTable.Usuarios.COLUMN_NAME_CORREO + TEXT_TYPE + COMMA_SEP +
             DefineTable.Usuarios.COLUMN_NAME_CONTRA + TEXT_TYPE + " );";
 
     private static final String SQL_DELETE_USUARIO = "DROP TABLE IF EXISTS " +
             DefineTable.Usuarios.TABLE_NAME;
 
-    private static final String DATABASE_NAME = "usuarios1.db";
+    private static final String DATABASE_NAME = "usuarios2.db";
     private static final int DATABASE_VERSION = 1;
 
     public UsuarioDbHelper(Context context){

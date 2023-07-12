@@ -5,16 +5,19 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
     public int id;
+    public String usuario;
     public String correo;
     public String contra;
 
     public Usuario() {
+        this.usuario = "";
         this.contra = "";
         this.correo = "";
     }
 
-    public Usuario(int id, String correo, String contra){
+    public Usuario(int id, String usuario, String correo, String contra){
         this.id = id;
+        this.usuario = usuario;
         this.correo = correo;
         this.contra = contra;
     }
@@ -43,6 +46,11 @@ public class Usuario implements Serializable {
         this.contra = contra;
     }
 
-    public static class Aplicacion {
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 }

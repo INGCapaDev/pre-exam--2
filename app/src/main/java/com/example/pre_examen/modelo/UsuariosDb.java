@@ -40,6 +40,7 @@ public class UsuariosDb implements Persistencia, Proyeccion {
     public long insertUsuario(Usuario usuario) {
         ContentValues values = new ContentValues();
 
+        values.put(DefineTable.Usuarios.COLUMN_NAME_USUARIO, usuario.getUsuario());
         values.put(DefineTable.Usuarios.COLUMN_NAME_CORREO, usuario.getCorreo());
         values.put(DefineTable.Usuarios.COLUMN_NAME_CONTRA, usuario.getContra());
 
@@ -53,6 +54,7 @@ public class UsuariosDb implements Persistencia, Proyeccion {
         ContentValues values = new ContentValues();
 
         values.put(DefineTable.Usuarios.COLUMN_NAME_ID, usuario.getId());
+        values.put(DefineTable.Usuarios.COLUMN_NAME_USUARIO, usuario.getUsuario());
         values.put(DefineTable.Usuarios.COLUMN_NAME_CORREO, usuario.getCorreo());
         values.put(DefineTable.Usuarios.COLUMN_NAME_CONTRA, usuario.getContra());
 
@@ -123,8 +125,9 @@ public class UsuariosDb implements Persistencia, Proyeccion {
         Usuario usuario = new Usuario();
 
         usuario.setId(cursor.getInt(0));
-        usuario.setCorreo(cursor.getString(1));
-        usuario.setContra(cursor.getString(2));
+        usuario.setUsuario(cursor.getString(1));
+        usuario.setCorreo(cursor.getString(2));
+        usuario.setContra(cursor.getString(3));
 
         return usuario;
     }
