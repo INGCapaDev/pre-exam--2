@@ -82,14 +82,20 @@ public class UsuariosDb implements Persistencia, Proyeccion {
         Cursor cursor = db.query(
                 DefineTable.Usuarios.TABLE_NAME,
                 DefineTable.Usuarios.REGISTRO,
-                DefineTable.Usuarios.COLUMN_NAME_ID + "=?",
+                DefineTable.Usuarios.COLUMN_NAME_CORREO + "=?",
                 new String[] {correo},
                 null, null, null
 
         );
-        cursor.moveToFirst();
-        Usuario usuario = readUsuario(cursor);
-        return usuario;
+
+        if (cursor.moveToFirst()) {
+            Usuario usuario = readUsuario(cursor);
+            cursor.close();
+            return usuario;
+        } else {
+            cursor.close();
+            return null;
+        }
     }
 
     @Override

@@ -1,7 +1,9 @@
 package com.example.pre_examen;
 
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     public int id;
     public String correo;
     public String contra;
@@ -39,5 +41,8 @@ public class Usuario {
 
     public void setContra(String contra) {
         this.contra = contra;
+    }
+
+    public static class Aplicacion {
     }
 }
